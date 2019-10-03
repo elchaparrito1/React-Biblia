@@ -29,3 +29,23 @@ the page and becomes HTML, it will be transpiled by Babel to "class".*/
     /*this is a special keyword in JS. The details of it are a bit nuanced, but for React
     this is bound to the React component class. So when we use this.props inside of a
     component, we're accessing the props property on that particular parent component. */
+
+/*Understanding the binding of "this" is one of the trickiest parts of learning JS programming.
+In short, we want "this" inside any method to reference the local component just like it does
+inside render(). BUT, inside render(), React binds "this" to the component automatically for
+us. Inside a method, on the other hand, or when we declare our own custom methods, we have to bind
+the methods manually through the constructor()*/
+
+/*The constructor() is a special function in a JS class. JS invokes constructor() whenever an object
+is created via a class. React invokes constructor() first thing when initializing the component
+with the component's props.*/
+
+//Further with props:
+    //React favors the idea of one-way data flow.
+    //This means that data changes come from the top of the app and are propagated downwards.
+
+/*Every React component is rendered as a function of its this.props and this.state. This rendering is
+deterministic. This means that given a set of props and a set of state, a React component will always 
+render a single way. This is what makes for a powerful UI experience in React.*/
+
+
