@@ -48,4 +48,30 @@ with the component's props.*/
 deterministic. This means that given a set of props and a set of state, a React component will always 
 render a single way. This is what makes for a powerful UI experience in React.*/
 
+/*Remember that state gets updated only through the method attached to the class which is this.setState.
+The state should never be modified outside of this.setState, b/c the state object should be thought of as
+immutable. Part of the reason for this is b/c setState is actually asynchronous. There is no guarantee when
+React will update the state and re-render the component.*/
+
+//Changing methods to an arrow function eliminates the need for a constructor in the class:
+class Comp extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            state: ""
+        }
+        this.handleMethod = this.handleMethod.bind(this)
+    }
+} //This would change to:
+class Comp extends React.Component {
+        state = {
+            state: ""
+        }
+        
+        handleMethod = () => {
+
+        }
+}
+
+//This again is because the arrow function will ensure that "this" is bound to the component, as expected
 
